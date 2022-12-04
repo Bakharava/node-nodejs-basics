@@ -9,7 +9,7 @@ const rename = async () => {
     if (err) {
       fs.access(pathToWrongFile, (err) => {
         if (err) {
-          throw Error('FS operation failed');
+          throw new Error('FS operation failed');
         } else {
           fs.rename(pathToWrongFile, pathToProperFile, err => {
             if (err) throw err;
@@ -17,7 +17,7 @@ const rename = async () => {
         }
       })
     } else {
-      throw Error('FS operation failed');
+      throw new Error('FS operation failed');
     }
   })
 };

@@ -10,7 +10,7 @@ const create = async () => {
           console.log('File was added!');
         })
       } else {
-        throw Error('FS operation failed');
+        throw new Error('FS operation failed');
       }
     })
 };
