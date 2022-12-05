@@ -1,8 +1,12 @@
 import * as fs from 'fs';
-import * as path from 'path';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const list = async () => {
-  const pathToFolder = path.join('files');
+  const pathToFolder = join(__dirname, 'files');
 
   fs.access(pathToFolder, fs.F_OK, (err) => {
     if (err) {
