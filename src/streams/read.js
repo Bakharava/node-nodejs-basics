@@ -1,9 +1,13 @@
 import * as fs from 'fs';
-import * as path from 'path';
 import process from 'process';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const read = async () => {
-  const pathToFile = path.join('files', 'fileToRead.txt');
+  const pathToFile = join(__dirname, 'files', 'fileToRead.txt');
   const stream = fs.createReadStream(pathToFile, 'utf-8');
   let data = '';
 

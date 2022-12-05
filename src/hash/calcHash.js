@@ -1,9 +1,13 @@
 import * as fs from 'fs';
-import * as path from 'path';
 import crypto from 'crypto';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const calculateHash = async () => {
-  const pathToFile = path.join( 'files', 'fileToCalculateHashFor.txt');
+  const pathToFile = join(__dirname, 'files', 'fileToCalculateHashFor.txt');
   fs.readFile(pathToFile, (err, data) => {
     if (err) throw 'eeeERrr' + err;
     createHexHesh(data)
