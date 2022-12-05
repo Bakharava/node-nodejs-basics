@@ -32,10 +32,13 @@ const performCalculations = async () => {
 
   Promise.all(listOfWorkers)
     .then((data) => {
-      resultsOfWorker.push({
-      status: 'resolved',
-      data
-    });
+      data.forEach(item => {
+        resultsOfWorker.push({
+          status: 'resolved',
+          item
+        });
+      })
+
   })
     .catch((err)=> {
       resultsOfWorker.push({
