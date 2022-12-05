@@ -3,7 +3,7 @@ import * as path from 'path';
 import process from 'process';
 
 const read = async () => {
-  const pathToFile = path.join('src', 'streams', 'files', 'fileToRead.txt');
+  const pathToFile = path.join('files', 'fileToRead.txt');
   const stream = fs.createReadStream(pathToFile, 'utf-8');
   let data = '';
 
