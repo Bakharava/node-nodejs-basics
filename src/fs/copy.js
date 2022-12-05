@@ -1,9 +1,14 @@
 import * as fs from 'fs';
-import * as path from 'path';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const copy = async () => {
-  const pathToOriginFolder = path.join('files');
-  const pathToTargetFolder = path.join('files_copy');
+  const pathToOriginFolder = join(__dirname, 'files');
+  const pathToTargetFolder = join(__dirname,'files_copy');
+  console.log('1111', pathToTargetFolder)
   fs.access(pathToTargetFolder, fs.F_OK, (err) => {
     if (err) {
       copyFiles();
@@ -17,15 +22,15 @@ const copy = async () => {
       if (err) {
         throw new Error('FS operation failed');
       } else {
-        await fs.mkdir(path.join(pathToTargetFolder), err => {
-          err && throw Error(err);
+        fs.mkdir(join(pathToTargetFolder), err => {
+          if (err) throw err;
           console.log('Folder is created');
         });
         files.forEach(file => {
-          const pathToOriginFile = path.join(pathToOriginFolder, file)
-          const pathToTargetFile = path.join(pathToTargetFolder, file)
+          const pathToOriginFile = join(pathToOriginFolder, file)
+          const pathToTargetFile = join(pathToTargetFolder, file)
           fs.copyFile(pathToOriginFile, pathToTargetFile, (err) => {
-            err && throw Error(err);
+            if (err) throw err;
           })
         })
       }
