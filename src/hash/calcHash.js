@@ -3,7 +3,7 @@ import * as path from 'path';
 import crypto from 'crypto';
 
 const calculateHash = async () => {
-  const pathToFile = path.join('src', 'hash', 'files', 'fileToCalculateHashFor.txt');
+  const pathToFile = path.join( 'files', 'fileToCalculateHashFor.txt');
   fs.readFile(pathToFile, (err, data) => {
     if (err) throw 'eeeERrr' + err;
     createHexHesh(data)
