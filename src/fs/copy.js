@@ -2,8 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const copy = async () => {
-  const pathToOriginFolder = path.join('src', 'fs', 'files');
-  const pathToTargetFolder = path.join('src', 'fs', 'files_copy');
+  const pathToOriginFolder = path.join('files');
+  const pathToTargetFolder = path.join('files_copy');
   fs.access(pathToTargetFolder, fs.F_OK, (err) => {
     if (err) {
       copyFiles();

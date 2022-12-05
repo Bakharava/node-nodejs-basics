@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const create = async () => {
-  const pathToFile = path.join('src', 'fs', 'files', 'fresh.txt');
+  const pathToFile = path.join('files', 'fresh.txt');
     fs.access(pathToFile, fs.F_OK, (err) => {
       if (err) {
         fs.appendFile(pathToFile, 'I am fresh and young', (err) => {

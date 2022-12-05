@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const remove = async () => {
-  const pathToFile = path.join('src', 'fs', 'files', 'fileToRemove.txt');
+  const pathToFile = path.join('files', 'fileToRemove.txt');
   fs.access(pathToFile, fs.F_OK, (err) => {
     if (err) {
       throw new Error('FS operation failed');

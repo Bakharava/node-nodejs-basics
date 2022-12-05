@@ -2,8 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const rename = async () => {
-  const pathToWrongFile = path.join('src', 'fs', 'files', 'wrongFilename.txt');
-  const pathToProperFile = path.join('src', 'fs', 'files', 'properFilename.md');
+  const pathToWrongFile = path.join('files', 'wrongFilename.txt');
+  const pathToProperFile = path.join('files', 'properFilename.md');
 
   fs.access(pathToProperFile, fs.F_OK, (err) => {
     if (err) {

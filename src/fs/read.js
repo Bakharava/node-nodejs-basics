@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const read = async () => {
-  const pathToFile = path.join('src', 'fs', 'files', 'fileToRead.txt');
+  const pathToFile = path.join('files', 'fileToRead.txt');
   fs.access(pathToFile, fs.F_OK, (err) => {
     if (err) {
       throw new Error('FS operation failed');

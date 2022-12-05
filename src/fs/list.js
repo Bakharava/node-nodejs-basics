@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const list = async () => {
-  const pathToFolder = path.join('src', 'fs', 'files');
+  const pathToFolder = path.join('files');
 
   fs.access(pathToFolder, fs.F_OK, (err) => {
     if (err) {
